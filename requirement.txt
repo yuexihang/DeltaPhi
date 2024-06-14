@@ -1,0 +1,7 @@
+scipy
+pandas
+scikit-learn
+tqdm
+h5py
+wandb
+einops
