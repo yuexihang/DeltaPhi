@@ -29,7 +29,7 @@ pip install -r requirement.txt
 
 Download the dataset from [Google Driver](https://drive.google.com/file/d/1BNCxwwI3M4OUg3sC-8LljLT98joB0G9D/view?usp=sharing).
 Put `Composites.zip` in `datasets/` and unzip it. 
-```
+``` bash
 cd datasets
 unzip Composites.zip
 ```
@@ -45,9 +45,35 @@ Run the experiment using the following scripts:
 cd Composites
 
 # The code for NORM (Previous):
-python norm.py 
+CUDA_VISIBLE_DEVICES=0 python norm.py 
 # The code for NORM (DeltaPhi): 
-python norm_DeltaPhi.py 
+CUDA_VISIBLE_DEVICES=0 python norm_DeltaPhi.py 
+```
+
+### Case 2: HeatTransfer
+
+Download the dataset from [Google Driver](https://drive.google.com/file/d/1U9cWx7AZzmzF268SDOyRdubLaSEKNAtx/view?usp=sharing).
+Put `HeatTransfer.zip` in `datasets/` and unzip it. 
+``` bash
+cd datasets
+unzip HeatTransfer.zip
+```
+
+The directory structure is as follows:
+```
+datasets/HeatTransfer/Data/HeatTransfer.mat
+datasets/HeatTransfer/HeatTransfer_LBO_basis/lbe_ev_input.mat
+datasets/HeatTransfer/HeatTransfer_LBO_basis/lbe_ev_output.mat
+```
+
+Run the experiment using the following scripts:
+``` bash
+cd HeatTransfer
+
+# The code for NORM (Previous):
+CUDA_VISIBLE_DEVICES=0 python norm.py 
+# The code for NORM (DeltaPhi): 
+CUDA_VISIBLE_DEVICES=0 python norm_DeltaPhi.py 
 ```
 
 ### More Cases
@@ -64,6 +90,20 @@ All other configurations keep unchanged.
 1. Dataset. Implement the `Dataset` class in which the `__getitem__()` function returns not only the original input-output function $(a_i,u_i)$, but also the randomly sampled auxiliary sample $(a_{k_i}, u_{k_i}, score_{k_i})$.
 
 2. Model. (a) Concatenate the auxiliary sample $(a_{k_i}, u_{k_i}, score_{k_i})$ with original inputs. (b) Take the summation of the auxiliary output function $u_{k_i}$ and original model outputs, as the final model outputs.
+
+
+
+## Acknowledgement
+
+We greatly appreciate the following open-source works, as they form the foundation of our work.
+
+- https://github.com/gengxiangc/NORM
+- https://github.com/neuraloperator/neuraloperator
+- https://github.com/HaoZhongkai/GNOT
+- https://github.com/alasdairtran/fourierflow
+- https://github.com/pdearena/pdearena
+- https://github.com/scaomath/galerkin-transformer
+- https://github.com/lu-group/mionet
 
 
 <!-- ## Citations
