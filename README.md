@@ -84,12 +84,12 @@ Codes for additional simulation cases will be released later.
 
 ## Create More Residual Neural Operators
 
-You can create a residual neural operator based on existing direct neural operator by modifying the original `Dataset` and `Model` class.
+You can create a residual neural operator based on an existing direct neural operator by modifying the original `Dataset` and `Model` class.
 All other configurations keep unchanged.
 
 1. Dataset. Implement the `Dataset` class in which the `__getitem__()` function returns not only the original input-output function $(a_i,u_i)$, but also the randomly sampled auxiliary sample $(a_{k_i}, u_{k_i}, score_{k_i})$.
 
-2. Model. (a) Concatenate the auxiliary sample $(a_{k_i}, u_{k_i}, score_{k_i})$ with original inputs. (b) Take the summation of the auxiliary output function $u_{k_i}$ and original model outputs, as the final model outputs.
+2. Model. Modify the `Model` class in two aspects: (a) Auxiliary sample integration: Concatenate original inputs with auxiliary sample $(a_{k_i}, u_{k_i}, score_{k_i})$. (b) Trajectory residual connection: Take the summation of the auxiliary output function $u_{k_i}$ and original model outputs, as the final model outputs.
 
 
 
