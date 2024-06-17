@@ -1,5 +1,5 @@
 # DeltaPhi
-Code for "DeltaPhi: Learning Physical Trajectory Residual for PDE Solving".
+Code for "[DeltaPhi: Learning Physical Trajectory Residual for PDE Solving](https://arxiv.org/pdf/2406.09795)".
 
 ## Installing Environment
 
